@@ -6,7 +6,7 @@ import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const contractAddress = "0x0D75f45b91Bce958FE9F031F3F02574a418480B4";
+const contractAddress = "0xD2D5789b0f969eF8e3098868AA52895D2663d701";
 const abi = contract.abi;
 
 function App() {
@@ -63,7 +63,7 @@ function App() {
         const nftContract = new ethers.Contract(contractAddress, abi, signer);
 
         console.log("Initialize payment");
-        let nftTxn = await nftContract.mintNFTs(1, { value: ethers.utils.parseEther("0.01") });
+        let nftTxn = await nftContract.mintNFTs(1, { value: ethers.utils.parseEther("0.05") });
 
         console.log("Mining... please wait");
         toast.info("minting...please wait", {
@@ -78,7 +78,7 @@ function App() {
         await nftTxn.wait();
 
         console.log(`Mined, see transaction: https://https://goerli.etherscan.io/tx/${nftTxn.hash}`);
-        toast.success("congrats, NFT minted!")
+        toast.success("congratulations...You just saved the environment")
 
       } else {
         console.log("Ethereum object does not exist");
@@ -113,9 +113,14 @@ function App() {
 
   return (
     <div className='main-app'>
-      <h1 className='heading'>AnezichukwuNFT</h1>
+      <h1 className='heading'>Save The Environment</h1>
       <div>
         {currentAccount ? mintNftButton() : connectWalletButton()}
+      </div>
+      <div className='description'>
+        <p>
+      The world was once beautiful, but pollution, deforestation, and climate change threatened its existence. A group of passionate individuals launched a campaign to encourage people to plant trees and support environmental organizations. They created an NFT called "Plant a Tree, Save the Environment," which was a digital representation of a tree with a certificate of authenticity and a unique identification number. Funds realized from the sale of the NFTs would be donated to organizations fighting climate change and protecting the environment. The NFT not only allowed people to contribute to a good cause but also served as a symbol of their commitment to a sustainable future.
+      </p>
       </div>
       
       <ToastContainer 

@@ -15,15 +15,16 @@
 }
 
 .connect-wallet-button {
-    background: rgb(32, 129, 226);
+    background: rgb(40, 77, 113);
 }
 
 .mint-nft-button {
-    background: orange;
+    background: green;
 }
 .heading {
-    color: white;
+    color: rgb(140, 248, 140);
     font-weight: bolder;
+    font-size: 400%;
 
 }
 
