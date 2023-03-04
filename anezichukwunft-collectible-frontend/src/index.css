@@ -23,7 +23,7 @@ code {
 .description {
   color: rgb(249, 250, 250);
   font-weight: 300;
-  font-size: large;
+  font-size: small;
   letter-spacing: 0.05em;
   font-style: italic;
   background-color: rgba(76, 52, 52, 0.219);
