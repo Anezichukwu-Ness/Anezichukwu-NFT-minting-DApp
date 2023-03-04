@@ -119,7 +119,7 @@ function App() {
       </div>
       <div className='description'>
         <p>
-      The world was once beautiful, but pollution, deforestation, and climate change threatened its existence. A group of passionate individuals launched a campaign to encourage people to plant trees and support environmental organizations. They created an NFT called "Plant a Tree, Save the Environment," which was a digital representation of a tree with a certificate of authenticity and a unique identification number. Funds realized from the sale of the NFTs would be donated to organizations fighting climate change and protecting the environment. The NFT not only allowed people to contribute to a good cause but also served as a symbol of their commitment to a sustainable future.
+      The world was once beautiful, but pollution, deforestation, and climate change threatened its existence. A group of passionate individuals launched a campaign to encourage people to plant trees and support environmental organizations. They created an NFT called "Plant a Tree, Save the Environment," a digital representation of a tree with a certificate of authenticity and a unique identification number minting for 0.05ETH. Funds realized from the sale of the NFTs would be donated to organizations fighting climate change and protecting the environment. The NFT not only allowed people to contribute to a good cause but also served as a symbol of their commitment to a sustainable future.
       </p>
       </div>
       
