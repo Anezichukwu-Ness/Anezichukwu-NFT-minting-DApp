@@ -4,15 +4,25 @@ import contract from './contract/AnezichukwuNFT.json';
 import { ethers } from 'ethers';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Card from "./components/Card";
+import Navbar from "./components/Navbar"
+import axios from 'axios'
+import data from "./data";
+import logo from './3.jpg'
 
 
-const contractAddress = "0xD2D5789b0f969eF8e3098868AA52895D2663d701";
+
+
+const contractAddress = "0x8a7965e2af3a8e84FFa40AF298a788DC8886B2d2";
 const abi = contract.abi;
 
 function App() {
-
+   // Define state variables using useState hooks
   const [currentAccount, setCurrentAccount] = useState(null);
+  const [tokenIdsMinted, setTokenIdsMinted] = useState("0");
+  const [balance, setBalance] = useState("0");
 
+  // Function to check if Metamask wallet is connected
   const checkWalletIsConnected = async () => {
     const { ethereum } = window;
 
@@ -36,6 +46,7 @@ function App() {
     }
   }
 
+  // Function to connect Metamask wallet
   const connectWalletHandler = async () => {
     const { ethereum } = window;
 
@@ -53,6 +64,8 @@ function App() {
     }
   }
 
+ 
+   // Function to mint NFT
   const mintNftHandler = async () => {
     try {
       const { ethereum } = window;
@@ -63,7 +76,7 @@ function App() {
         const nftContract = new ethers.Contract(contractAddress, abi, signer);
 
         console.log("Initialize payment");
-        let nftTxn = await nftContract.mintNFTs(1, { value: ethers.utils.parseEther("0.05") });
+        let nftTxn = await nftContract.mintNFTs(1, { value: ethers.utils.parseEther("0.001") });
 
         console.log("Mining... please wait");
         toast.info("minting...please wait", {
@@ -76,9 +89,9 @@ function App() {
           progress: undefined,
         })
         await nftTxn.wait();
-
         console.log(`Mined, see transaction: https://https://goerli.etherscan.io/tx/${nftTxn.hash}`);
         toast.success("congratulations...You just saved the environment")
+        //getMintedNFT(tokenId)
 
       } else {
         console.log("Ethereum object does not exist");
@@ -91,37 +104,112 @@ function App() {
     }
   }
 
-  const connectWalletButton = () => {
-    return (
-      <button onClick={connectWalletHandler} className='cta-button connect-wallet-button'>
-        Connect Wallet
-      </button>
-    )
+  //function to get token Id minted
+  const getTokenIdsMinted = async () => {
+    const { ethereum } = window;
+  
+    if (ethereum) {
+      console.log("fetch tokenID");
+      const provider = new ethers.providers.Web3Provider(ethereum, "any");
+      const nftContract = new ethers.Contract(contractAddress, abi, provider);
+  
+      try {
+        const _tokenIds = await nftContract.getTokenIdsMinted();
+        console.log("fetched!", _tokenIds);
+        setTokenIdsMinted(_tokenIds.toString());
+      } catch (error) {
+        console.log(error);
+        toast.error("");
+      }
+    } else {
+      console.log("Metamask is not connected");
+      toast.error("Metamask is not connected");
+    }
   }
 
-  const mintNftButton = () => {
-    return (
-      <button onClick={mintNftHandler} className='cta-button mint-nft-button'>
-        Mint NFT
-      </button>
-    )
-  }
+ //function to check contract balance
+  const checkBalance = async () => {
+    const { ethereum } = window;
+    if (ethereum) {
+      console.log("fetch balance");
+      const provider = new ethers.providers.Web3Provider(ethereum, "any");
+      const nftContract = new ethers.Contract(contractAddress, abi, provider);
+      try {
+        const balanceWei = await nftContract.getBalance();
+        const balanceEth = ethers.utils.formatEther(balanceWei);
+        console.log("fetched!");
+        console.log(`Your balance is ${balanceEth} ETH.`);
+        setBalance(balanceEth);
+      } catch (error) {
+        console.log(error);
+        toast.error("Error, could not fetch your balance");
+      }
+    } else {
+      console.log("Metamask is not connected");
+      toast.error("Metamask is not connected");
+    }
+  }  
+
 
   useEffect(() => {
     checkWalletIsConnected();
+    getTokenIdsMinted();
+    checkBalance();
   }, [])
 
+ 
   return (
     <div className='main-app'>
-      <h1 className='heading'>Save The Environment</h1>
-      <div>
-        {currentAccount ? mintNftButton() : connectWalletButton()}
-      </div>
-      <div className='description'>
-        <p>
-      The world was once beautiful, but pollution, deforestation, and climate change threatened its existence. A group of passionate individuals launched a campaign to encourage people to plant trees and support environmental organizations. They created an NFT called "Plant a Tree, Save the Environment," a digital representation of a tree with a certificate of authenticity and a unique identification number minting for 0.05ETH. Funds realized from the sale of the NFTs would be donated to organizations fighting climate change and protecting the environment. The NFT not only allowed people to contribute to a good cause but also served as a symbol of their commitment to a sustainable future.
-      </p>
-      </div>
+      <Navbar />
+{currentAccount ? (
+    <div className='mainBody'>
+        <div className='mintCard'> 
+            <h2 className='card--header'>Donate to the campaign, by minting an NFT</h2>
+            
+            <div className='card--body'>
+                <img src={logo} className="App-logo" alt="logo" />
+                <div className='info--card'>
+                    <div className="tokenID">
+                      {tokenIdsMinted}/10 NFTs have been minted
+                      <p>Total Ether Donated {balance} ETH</p>
+                    </div>
+                    <hr className='infocard--hr'/>
+                    <p className='nftPrice--description'>Price is 0.001ETH <span>+ GAS</span></p>
+                    <hr/>
+                    <button onClick={mintNftHandler} type='button' className='buyButton'> Mint </button>
+                </div>
+            </div>
+
+            <div className='card--footer'>
+              <hr/>
+              <h3>CONTRACT ADDRESS</h3>
+              <p><a href="https://mumbai.polygonscan.com/address/0x8a7965e2af3a8e84FFa40AF298a788DC8886B2d2#code"target="_blank">View on Polygonscan</a></p>
+            </div>
+
+        </div>
+        
+       
+    </div>    
+      ) : (
+      <div className='landinPage--container'>  
+      
+       <button onClick={connectWalletHandler} className='cta-button connect-wallet-button'>
+                      Connect Wallet
+       </button>
+
+       <div className='landingPage'>  
+           <img src={logo} id="landingPage--image" alt="logo" />
+           <div>
+               <h2>About the project</h2>
+                     <p className='projectIntro'>This is a donation for a tree-planting campaign called 'Plant a Tree, Save a Life.' Users can purchase a collection of 10 NFTs for 0.001 ETH each. 
+                     The funds raised from the sale of the NFTs will be used to plant trees..</p>
+           </div>
+       </div>
+      </div> 
+       )}
+      
+      
+      
       
       <ToastContainer 
        position='top-right'
@@ -138,5 +226,6 @@ function App() {
     
   )
 }
+
 
 export default App;

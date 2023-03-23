@@ -7,7 +7,7 @@
 const { utils } = require("ethers");
 
 async function main() {
-    const baseTokenURI = "ipfs://QmZ5Rnp3AazLQ6GYF6zbztD5oZPxsggmxhWXN1QFt9kcko/";
+    const baseTokenURI = "ipfs://QmXQYuYp6fMXjiQPPgBhTAGY5V1CJcApRcK7tLXSPDvzSD/";
 
     // Get owner/deployer's wallet address
     const [owner] = await hre.ethers.getSigners();
@@ -24,11 +24,22 @@ async function main() {
     // Get contract address
     console.log("Contract deployed to:", contract.address);
 
-    // Get all token IDs of the owner
-    let tokens = await contract.tokensOfOwner(owner.address)
-    console.log("Owner has tokens: ", tokens);
-
+    console.log("Sleeping.....");
+    // Wait for etherscan to notice that the contract has been deployed
+    await sleep(30000);
+  
+    // Verify the contract after deploying
+    await hre.run("verify:verify", {
+      address: contract.address,
+      constructorArguments: [baseTokenURI],
+    });
 }
+  
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+    
 
 main()
     .then(() => process.exit(0))

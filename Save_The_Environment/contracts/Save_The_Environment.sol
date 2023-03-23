@@ -14,11 +14,11 @@ contract Save_The_Environment is ERC721Enumerable, Ownable {
     using Counters for Counters.Counter;
 
     // Creating a counter for token IDs
-    Counters.Counter private _tokenIds;
+    Counters.Counter public _tokenIds;
 
     // Setting the maximum supply of NFTs to 10 and the price per NFT to 0.05 ether
     uint public constant MAX_SUPPLY = 10;
-    uint public constant PRICE = 0.05 ether;
+    uint public constant PRICE = 0.001 ether;
 
     // Setting the maximum number of NFTs that can be minted per transaction to 2
     uint public constant MAX_PER_MINT = 2;
@@ -67,6 +67,12 @@ contract Save_The_Environment is ERC721Enumerable, Ownable {
         _safeMint(msg.sender, newTokenID);
         _tokenIds.increment();
     }
+
+    //To get total NFT minted
+    function getTokenIdsMinted() public view returns (uint256) {
+    uint totalMinted = _tokenIds.current();
+    return totalMinted;
+  }
     
     //This function allows the contract owner to withdraw any ether stored in the contract. 
     function withdraw() public payable onlyOwner {
@@ -75,6 +81,11 @@ contract Save_The_Environment is ERC721Enumerable, Ownable {
 
         (bool success, ) = (msg.sender).call{value: balance}("");
         require(success, "Transfer failed.");
+    }
+
+    //fetch the total amount in the contract
+    function getBalance() public view returns (uint256) {
+        return address(this).balance;
     }
     
 }
