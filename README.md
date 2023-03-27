@@ -1,12 +1,13 @@
 # Plant a Tree, Save the Environment
-This is a donation for a tree-planting campaign called 'Plant a Tree, Save the Environment.' Users can purchase a collection of 10 NFTs for 0.001 ETH each. The funds raised from the sale of the NFTs will be used to plant trees.
-
+This is a decentralized application for donating to a tree-planting campaign called 'Plant a Tree Save the Environment' through minting an NFT. The dapp has a collection of 10 NFTs, and each of them costs 0.01 MATIC. The funds raised from the minting these NFTs are for an organization in charge of tree planting. Only the organization can withdraw the donated funds.
 ## How it works
 
 - Visit the campaign's website or platform where the NFTs are being sold.
-- contribute to the campaign by minting an NFT for 0.001 ETH each. 
-- The funds raised from the sale of these NFTs will be used to plant trees in areas that need it most. The campaign organizers will work with local communities and organizations to identify suitable planting sites and determine the number and types of trees to be planted.
-- The NFTs you purchased will remain as proof of your contribution to the campaign. Depending on the campaign, there may be opportunities to trade or sell these NFTs in the future.
+- contribute to the campaign by minting an NFT for 0.01 MATIC each. 
+- The funds raised from the sale of these NFTs will be used to plant trees in areas that need it most.
+
+## Smart Contract
+This is the link to the verified smart contract on polygonscan. https://mumbai.polygonscan.com/address/0x1C4B6a2a53E9B0A79350E04b326112CF3122Ba16#code
 
 
 ## Getting Started
