@@ -18,7 +18,7 @@ contract Save_The_Environment is ERC721Enumerable, Ownable {
 
     // Setting the maximum supply of NFTs to 10 and the price per NFT to 0.05 ether
     uint public constant MAX_SUPPLY = 10;
-    uint public constant PRICE = 0.001 ether;
+    uint public constant PRICE = 0.01 ether;
 
     // Setting the maximum number of NFTs that can be minted per transaction to 2
     uint public constant MAX_PER_MINT = 2;
