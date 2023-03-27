@@ -222,20 +222,16 @@ nav{
 }
 
 .mintCard{
-    
-    width:700px;
-    height:500px;
+    width:50%;
+    height:550px;
     color: #FFFFFF;
-    border-radius: 25px;
+    border-radius: 0px;
     margin-right: auto;
     margin-left: auto;
     background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
 }
 
-.mainBody{
-    height: 100%;
-    padding-bottom: 160px;
-}
+
 
 .landingPage{
     display: flex;
@@ -254,6 +250,95 @@ nav{
 .landinPage--container{
     border: 1px solid blue;
 }
+
+@media screen and (max-width: 600px) {
+    .landinPage--container{
+        width: 100%;
+    }
+
+    .landingPage{
+        display: block;
+        width: 100%;
+        margin: auto;
+        margin-top: 70px;
+    }
+
+    .mintCard{
+       width:100%;
+        height:100%;
+        color: #FFFFFF;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 50px;
+        background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+    }
+
+    .card--body{
+        margin-top: 50px;
+        margin-left: 30px;
+        margin-right: 30px;
+        display: block;
+        height: 75%;
+    }
+
+    .App-logo{
+        width: 250px;
+        height: 50%;
+        border-radius: 10px;
+    }
+
+    .info--card{
+        width: 250px;
+        margin: auto;
+    }
+
+
+}
+
+@media screen and (max-width: 1000px) {
+    .landinPage--container{
+        width: 100%;
+    }
+
+    .landingPage{
+        display: block;
+        width: 100%;
+        margin: auto;
+        margin-top: 70px;
+    }
+
+    .mintCard{
+       width:100%;
+        height:100%;
+        color: #FFFFFF;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 50px;
+        background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+    }
+
+    .card--body{
+        margin-top: 50px;
+        margin-left: 30px;
+        margin-right: 30px;
+        display: block;
+        height: 75%;
+    }
+
+    .App-logo{
+        width: 250px;
+        height: 50%;
+        border-radius: 10px;
+    }
+
+    .info--card{
+        width: 250px;
+        margin: auto;
+    }
+
+
+}
+   
    
 
 
