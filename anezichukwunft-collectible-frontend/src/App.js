@@ -13,7 +13,7 @@ import logo from './3.jpg'
 
 
 
-const contractAddress = "0x8a7965e2af3a8e84FFa40AF298a788DC8886B2d2";
+const contractAddress = "0x1C4B6a2a53E9B0A79350E04b326112CF3122Ba16";
 const abi = contract.abi;
 
 function App() {
@@ -56,6 +56,12 @@ function App() {
 
     try {
       const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+      const networkId = await ethereum.request({method: 'net_version'});
+      if (networkId !== '80001') {
+        console.log("kindly switch to Mumbai test network")
+        alert ("kindly switch to Mumbai test network")
+        return;
+      }
       console.log("Found an account! Address: ", accounts[0]);
       toast.success("wallet connected")
       setCurrentAccount(accounts[0]);
@@ -76,23 +82,16 @@ function App() {
         const nftContract = new ethers.Contract(contractAddress, abi, signer);
 
         console.log("Initialize payment");
-        let nftTxn = await nftContract.mintNFTs(1, { value: ethers.utils.parseEther("0.001") });
+        let nftTxn = await nftContract.mintNFTs(1, { value: ethers.utils.parseEther("0.01") });
 
         console.log("Mining... please wait");
-        toast.info("minting...please wait", {
-          position: "top-right",
-          autoClose: 18050,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        })
+        toast.loading("minting please wait...", { autoClose: false });
         await nftTxn.wait();
-        console.log(`Mined, see transaction: https://https://goerli.etherscan.io/tx/${nftTxn.hash}`);
-        toast.success("congratulations...You just saved the environment")
-        //getMintedNFT(tokenId)
-
+        console.log(`Mined, see transaction: https://mumbai.polygonscan.com/tx/${nftTxn.hash}`);
+        toast.dismiss();
+        alert(`NFT Minted, see transaction at: https://mumbai.polygonscan.com/tx/${nftTxn.hash}`)
+        getTokenIdsMinted()
+        checkBalance();
       } else {
         console.log("Ethereum object does not exist");
         
@@ -150,7 +149,6 @@ function App() {
     }
   }  
 
-
   useEffect(() => {
     checkWalletIsConnected();
     getTokenIdsMinted();
@@ -165,16 +163,19 @@ function App() {
     <div className='mainBody'>
         <div className='mintCard'> 
             <h2 className='card--header'>Donate to the campaign, by minting an NFT</h2>
+            <div className="connectStatus">
+                  {currentAccount !== "" ? "Connected to" : "Not Connected"} {currentAccount !== "" ? (currentAccount.substring(0, 15) + '...') : ""}
+                </div>
             
             <div className='card--body'>
                 <img src={logo} className="App-logo" alt="logo" />
                 <div className='info--card'>
                     <div className="tokenID">
                       {tokenIdsMinted}/10 NFTs have been minted
-                      <p>Total Ether Donated {balance} ETH</p>
+                      <p>Total Ether Donated {balance}  MATIC</p>
                     </div>
                     <hr className='infocard--hr'/>
-                    <p className='nftPrice--description'>Price is 0.001ETH <span>+ GAS</span></p>
+                    <p className='nftPrice--description'>Price is 0.01MATIC <span>+ GAS</span></p>
                     <hr/>
                     <button onClick={mintNftHandler} type='button' className='buyButton'> Mint </button>
                 </div>
@@ -183,7 +184,7 @@ function App() {
             <div className='card--footer'>
               <hr/>
               <h3>CONTRACT ADDRESS</h3>
-              <p><a href="https://mumbai.polygonscan.com/address/0x8a7965e2af3a8e84FFa40AF298a788DC8886B2d2#code"target="_blank">View on Polygonscan</a></p>
+              <p><a href="https://mumbai.polygonscan.com/address/0x1C4B6a2a53E9B0A79350E04b326112CF3122Ba16#code"target="_blank">View on Polygonscan</a></p>
             </div>
 
         </div>
@@ -201,8 +202,7 @@ function App() {
            <img src={logo} id="landingPage--image" alt="logo" />
            <div>
                <h2>About the project</h2>
-                     <p className='projectIntro'>This is a donation for a tree-planting campaign called 'Plant a Tree, Save a Life.' Users can purchase a collection of 10 NFTs for 0.001 ETH each. 
-                     The funds raised from the sale of the NFTs will be used to plant trees..</p>
+                     <p className='projectIntro'>This is a decentralized application for donating to a tree-planting campaign called 'Plant a Tree Save the Environment' through minting an NFT. The dapp has a collection of 10 NFTs, and each of them costs 0.01 MATIC. The funds raised from the minting of these NFTs are for an organization in charge of tree planting. Only the organization can withdraw the donated funds.</p>
            </div>
        </div>
       </div> 
