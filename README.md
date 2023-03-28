@@ -1,5 +1,6 @@
 # Plant a Tree, Save the Environment
-This is a decentralized application for donating to a tree-planting campaign called 'Plant a Tree Save the Environment' through minting an NFT. The dapp has a collection of 10 NFTs, and each of them costs 0.01 MATIC. The funds raised from the minting these NFTs are for an organization in charge of tree planting. Only the organization can withdraw the donated funds.
+The “Save the environment” idea is a campaign to help combat climate change. The aim and purpose of the project is to help raise fund, and this is to be achieved by people making donations to the campaign to help plant trees. By making a donation of 0.01 MATIC you automatically planted a tree to help save the environment, and an NFT will be airdropped to your wallet. The NFT is a token of appreciation for your act of kindness in a move to help save our environment.
+
 ## How it works
 
 - Visit the campaign's website or platform where the NFTs are being sold.
