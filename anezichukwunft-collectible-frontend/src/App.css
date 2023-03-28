@@ -247,10 +247,6 @@ nav{
     border-radius: 10px;
 }
 
-.landinPage--container{
-    border: 1px solid blue;
-}
-
 @media screen and (max-width: 600px) {
     .landinPage--container{
         width: 100%;
