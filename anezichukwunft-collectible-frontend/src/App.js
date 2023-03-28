@@ -85,11 +85,11 @@ function App() {
         let nftTxn = await nftContract.mintNFTs(1, { value: ethers.utils.parseEther("0.01") });
 
         console.log("Mining... please wait");
-        toast.loading("making donation please wait...", { autoClose: false });
+        toast.loading("Making a donation please wait...", { autoClose: false });
         await nftTxn.wait();
         console.log(`Mined, see transaction: https://mumbai.polygonscan.com/tx/${nftTxn.hash}`);
         toast.dismiss();
-        alert(`donation made you recieved an NFT, see transaction at: https://mumbai.polygonscan.com/tx/${nftTxn.hash}`)
+        alert(`Donation made you recieved an NFT, see transaction at: https://mumbai.polygonscan.com/tx/${nftTxn.hash}`)
         getTokenIdsMinted()
         checkBalance();
       } else {
