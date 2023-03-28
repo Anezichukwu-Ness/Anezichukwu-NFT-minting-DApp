@@ -85,11 +85,11 @@ function App() {
         let nftTxn = await nftContract.mintNFTs(1, { value: ethers.utils.parseEther("0.01") });
 
         console.log("Mining... please wait");
-        toast.loading("minting please wait...", { autoClose: false });
+        toast.loading("making donation please wait...", { autoClose: false });
         await nftTxn.wait();
         console.log(`Mined, see transaction: https://mumbai.polygonscan.com/tx/${nftTxn.hash}`);
         toast.dismiss();
-        alert(`NFT Minted, see transaction at: https://mumbai.polygonscan.com/tx/${nftTxn.hash}`)
+        alert(`donation made you recieved an NFT, see transaction at: https://mumbai.polygonscan.com/tx/${nftTxn.hash}`)
         getTokenIdsMinted()
         checkBalance();
       } else {
@@ -175,7 +175,7 @@ function App() {
                       <p>Total Ether Donated {balance}  MATIC</p>
                     </div>
                     <hr className='infocard--hr'/>
-                    <p className='nftPrice--description'>Price is 0.01MATIC <span>+ GAS</span></p>
+                    <p className='nftPrice--description'>Donate 0.01MATIC <span>+ GAS</span></p>
                     <hr/>
                     <button onClick={mintNftHandler} type='button' className='buyButton'> Donate </button>
                 </div>
