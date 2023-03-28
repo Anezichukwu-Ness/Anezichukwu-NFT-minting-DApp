@@ -162,7 +162,7 @@ function App() {
 {currentAccount ? (
     <div className='mainBody'>
         <div className='mintCard'> 
-            <h2 className='card--header'>Donate to the campaign, by minting an NFT</h2>
+            <h2 className='card--header'>Donate to the campaign</h2>
             <div className="connectStatus">
                   {currentAccount !== "" ? "Connected to" : "Not Connected"} {currentAccount !== "" ? (currentAccount.substring(0, 15) + '...') : ""}
                 </div>
@@ -177,7 +177,7 @@ function App() {
                     <hr className='infocard--hr'/>
                     <p className='nftPrice--description'>Price is 0.01MATIC <span>+ GAS</span></p>
                     <hr/>
-                    <button onClick={mintNftHandler} type='button' className='buyButton'> Mint </button>
+                    <button onClick={mintNftHandler} type='button' className='buyButton'> Donate </button>
                 </div>
             </div>
 
@@ -202,7 +202,7 @@ function App() {
            <img src={logo} id="landingPage--image" alt="logo" />
            <div>
                <h2>About the project</h2>
-                     <p className='projectIntro'>This is a decentralized application for donating to a tree-planting campaign called 'Plant a Tree Save the Environment' through minting an NFT. The dapp has a collection of 10 NFTs, and each of them costs 0.01 MATIC. The funds raised from the minting of these NFTs are for an organization in charge of tree planting. Only the organization can withdraw the donated funds.</p>
+                     <p className='projectIntro'>The “Save the environment” idea is a campaign to help combat climate change. The aim and purpose of the project is to help raise fund, and this is to be achieved by people making donations to the campaign to help plant trees. By making a donation of 0.01 MATIC you automatically planted a tree to help save the environment, and an NFT will be airdropped to your wallet. The NFT is a token of appreciation for your act of kindness in a move to help save our environment.</p>
            </div>
        </div>
       </div> 
