@@ -172,7 +172,7 @@ function App() {
                 <div className='info--card'>
                     <div className="tokenID">
                       {tokenIdsMinted}/10 NFTs have been minted
-                      <p>Total Ether Donated {balance}  MATIC</p>
+                      <p>Total Donated {balance}  MATIC</p>
                     </div>
                     <hr className='infocard--hr'/>
                     <p className='nftPrice--description'>Donate 0.01MATIC <span>+ GAS</span></p>
