@@ -171,7 +171,7 @@ function App() {
                 <img src={logo} className="App-logo" alt="logo" />
                 <div className='info--card'>
                     <div className="tokenID">
-                      {tokenIdsMinted}/10 NFTs have been minted
+                      {tokenIdsMinted}/10 Donations have been made
                       <p>Total Donated {balance}  MATIC</p>
                     </div>
                     <hr className='infocard--hr'/>
