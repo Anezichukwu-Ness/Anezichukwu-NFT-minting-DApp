@@ -6,7 +6,7 @@ The “Save the environment” idea is a campaign to help combat climate change.
 - Visit the campaign's website.
 - Donate to the campaign by clicking the "Donate" button. By donating 0.01 MATIC, an NFT will be minted for you as a token of appreciation.
 - The campaign target is 0.1 MATIC. Once this target is achieved, nobody will be able to donate again.
--
+
 
 ## Smart Contract
 This is the link to the verified smart contract on polygonscan. https://mumbai.polygonscan.com/address/0x1C4B6a2a53E9B0A79350E04b326112CF3122Ba16#code
