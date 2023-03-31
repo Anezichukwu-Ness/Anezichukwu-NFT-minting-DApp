@@ -171,8 +171,8 @@ function App() {
                 <img src={logo} className="App-logo" alt="logo" />
                 <div className='info--card'>
                     <div className="tokenID">
-                       Total Donated {balance} MATIC
-                      <p>Target is 0.1 MATIC</p>
+                       Total Donated: {balance} MATIC
+                      <p>Target: 0.1 MATIC</p>
                     </div>
                     <hr className='infocard--hr'/>
                     <p className='nftPrice--description'>Donate 0.01MATIC <span>+ GAS</span></p>
