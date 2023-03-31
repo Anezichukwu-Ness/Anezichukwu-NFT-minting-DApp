@@ -1,11 +1,12 @@
 # Plant a Tree, Save the Environment
-The “Save the environment” idea is a campaign to help combat climate change. The aim and purpose of the project is to help raise fund, and this is to be achieved by people making donations to the campaign to help plant trees. By making a donation of 0.01 MATIC you automatically planted a tree to help save the environment, and an NFT will be airdropped to your wallet. The NFT is a token of appreciation for your act of kindness in a move to help save our environment.
+The “Save the environment” idea is a campaign to help combat climate change. The aim and purpose of the project is to help raise fund, and this is to be achieved by people making donations to the campaign to help plant trees. By making a donation of 0.01 MATIC you automatically planted a tree to help save the environment, and an NFT will be airdropped to your wallet. The NFT is a token of appreciation for your act of kindness in a move to help save our environment. Note that the target for this campaign is 0.1MATIC. Once this target is reached, the campaign will automatically end nobody can be able to donate again.
 
 ## How it works
 
-- Visit the campaign's website or platform where the NFTs are being sold.
-- contribute to the campaign by minting an NFT for 0.01 MATIC each. 
-- The funds raised from the sale of these NFTs will be used to plant trees in areas that need it most.
+- Visit the campaign's website.
+- Donate to the campaign by clicking the donate button, to donate 0.01 MATIC and an NFT will be minted for you as a token of appreciation. 
+- Campaign target is 0.1 MATIC, once these target is achieved nobody can be able to donate again.
+-
 
 ## Smart Contract
 This is the link to the verified smart contract on polygonscan. https://mumbai.polygonscan.com/address/0x1C4B6a2a53E9B0A79350E04b326112CF3122Ba16#code
