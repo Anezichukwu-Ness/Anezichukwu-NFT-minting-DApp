@@ -44,8 +44,11 @@ Contributions to this project are welcome! If you find a bug or would like to su
 This project is licensed under the MIT License. See the LICENSE file for more information.
 
 ### Live Demo 
-https://anezichukwu-nft-minting-d-app.vercel.app/
-![bandicam 2023-03-24 14-31-52-588](https://user-images.githubusercontent.com/74817012/227538390-98a58be4-2b82-4f17-aed9-91163c6997c4.jpg)
-![bandicam 2023-03-24 14-33-18-163](https://user-images.githubusercontent.com/74817012/227538395-f40df3f0-26d4-4907-a88d-94fa82162a51.jpg)
-![bandicam 2023-03-24 14-33-30-956](https://user-images.githubusercontent.com/74817012/227538384-d82212c5-44ea-4c27-95a4-28f0408404c7.jpg)
+
+
+![bandicam 2023-03-31 19-36-22-597](https://user-images.githubusercontent.com/74817012/229204336-71c3b0fb-b834-4de4-9b32-6d57218cff96.jpg)
+![bandicam 2023-03-31 19-37-32-366](https://user-images.githubusercontent.com/74817012/229204339-18e5bb02-01ff-46f5-9f02-8e27ecb199bc.jpg)
+![bandicam 2023-03-31 19-38-09-299](https://user-images.githubusercontent.com/74817012/229204348-2f8ffc2d-f023-4700-bd69-a6a288f92262.jpg)
+![bandicam 2023-03-31 19-38-49-932](https://user-images.githubusercontent.com/74817012/229204353-7f20ae53-0431-432f-8f55-debc3ee894dc.jpg)
+
 
