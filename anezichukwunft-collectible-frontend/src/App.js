@@ -71,7 +71,7 @@ function App() {
   }
 
  
-   // Function to mint NFT
+   // Function to donate 0.01MATIC and  mint NFT
   const mintNftHandler = async () => {
     try {
       const { ethereum } = window;
